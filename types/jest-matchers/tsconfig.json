@@ -17,6 +17,6 @@
     },
     "files": [
         "index.d.ts",
-        "multer-tests.ts"
+        "jest-matchers-tests.ts"
     ]
 }
