@@ -7,7 +7,7 @@
  * @summary Interface for result of email template.
  * @interface
  */
-interface EmailTemplateResults {
+export interface EmailTemplateResults {
     /**
      * @summary HTML result.
      * @type {string}
@@ -31,7 +31,7 @@ interface EmailTemplateResults {
  * @summary Interface for callback of email callback.
  * @interface
  */
-interface EmailTemplateCallback {
+export interface EmailTemplateCallback {
     /**
      * @summary Callback signature.
      */
@@ -42,7 +42,7 @@ interface EmailTemplateCallback {
  * @summary Interface for email-template options
  * @interface
  */
-interface EmailTemplateOptions {
+export interface EmailTemplateOptions {
     sassOptions?: any;
     juiceOptions?: any;
 }
@@ -64,6 +64,6 @@ declare module "email-templates" {
          * @param {EmailTemplateCallback|Object} locals The variables or callback function.
          * @param {EmailTemplateCallback} callback The callback function.
          */
-        render(locals: EmailTemplateCallback|Object, callback?: EmailTemplateCallback): void;
+        render(locals: EmailTemplateCallback | Object, callback?: EmailTemplateCallback): void;
     }
 }
