@@ -1851,7 +1851,7 @@ declare namespace sequelize {
          * Accepts subtype any of the DataTypes
          * Array of required attributes that are available on the model
          */
-        new (subtype: DataTypeAbstract, requireAttributes?: Array<string>): DataTypeVirtual;
+        new(subtype: DataTypeAbstract, requireAttributes?: Array<string>): DataTypeVirtual;
     }
 
     interface DataTypeEnum extends DataTypeAbstract {
@@ -2095,7 +2095,7 @@ declare namespace sequelize {
          * @param message Error message
          * @param errors  Array of ValidationErrorItem objects describing the validation errors
          */
-        new (message: string, errors?: ValidationErrorItem[]): ValidationError;
+        new(message: string, errors?: ValidationErrorItem[]): ValidationError;
 
         /**
          * Gets all validation error items for the path / field specified.
@@ -2120,7 +2120,7 @@ declare namespace sequelize {
          * @param path The field that triggered the validation error
          * @param value The value that generated the error
          */
-        new (message: string, type: string, path: string, value: string): ValidationErrorItem;
+        new(message: string, type: string, path: string, value: string): ValidationErrorItem;
 
         /** An error message */
         message: string;
@@ -2141,7 +2141,7 @@ declare namespace sequelize {
         /**
          * A base class for all database related errors.
          */
-        new (parent: Error): DatabaseError;
+        new(parent: Error): DatabaseError;
 
     }
 
@@ -2150,7 +2150,7 @@ declare namespace sequelize {
         /**
          * Thrown when a database query times out because of a deadlock
          */
-        new (parent: Error): TimeoutError;
+        new(parent: Error): TimeoutError;
 
     }
 
@@ -2159,7 +2159,7 @@ declare namespace sequelize {
         /**
          * Thrown when a unique constraint is violated in the database
          */
-        new (options: { parent?: Error, message?: string, errors?: Object }): UniqueConstraintError;
+        new(options: { parent?: Error, message?: string, errors?: Object }): UniqueConstraintError;
 
     }
 
@@ -2168,7 +2168,7 @@ declare namespace sequelize {
         /**
          * Thrown when a foreign key constraint is violated in the database
          */
-        new (options: { parent?: Error, message?: string, index?: string, fields?: string[], table?: string }): ForeignKeyConstraintError;
+        new(options: { parent?: Error, message?: string, index?: string, fields?: string[], table?: string }): ForeignKeyConstraintError;
 
     }
 
@@ -2177,7 +2177,7 @@ declare namespace sequelize {
         /**
          * Thrown when an exclusion constraint is violated in the database
          */
-        new (options: { parent?: Error, message?: string, constraint?: string, fields?: string[], table?: string }): ExclusionConstraintError;
+        new(options: { parent?: Error, message?: string, constraint?: string, fields?: string[], table?: string }): ExclusionConstraintError;
 
     }
 
@@ -2186,7 +2186,7 @@ declare namespace sequelize {
         /**
          * A base class for all connection related errors.
          */
-        new (parent: Error): ConnectionError;
+        new(parent: Error): ConnectionError;
 
     }
 
@@ -2195,7 +2195,7 @@ declare namespace sequelize {
         /**
          * Thrown when a connection to a database is refused
          */
-        new (parent: Error): ConnectionRefusedError;
+        new(parent: Error): ConnectionRefusedError;
 
     }
 
@@ -2204,7 +2204,7 @@ declare namespace sequelize {
         /**
          * Thrown when a connection to a database is refused due to insufficient privileges
          */
-        new (parent: Error): AccessDeniedError;
+        new(parent: Error): AccessDeniedError;
 
     }
 
@@ -2213,7 +2213,7 @@ declare namespace sequelize {
         /**
          * Thrown when a connection to a database has a hostname that was not found
          */
-        new (parent: Error): HostNotFoundError;
+        new(parent: Error): HostNotFoundError;
 
     }
 
@@ -2222,7 +2222,7 @@ declare namespace sequelize {
         /**
          * Thrown when a connection to a database has a hostname that was not reachable
          */
-        new (parent: Error): HostNotReachableError;
+        new(parent: Error): HostNotReachableError;
 
     }
 
@@ -2231,7 +2231,7 @@ declare namespace sequelize {
         /**
          * Thrown when a connection to a database has invalid values for any of the connection parameters
          */
-        new (parent: Error): InvalidConnectionError;
+        new(parent: Error): InvalidConnectionError;
 
     }
 
@@ -2240,7 +2240,7 @@ declare namespace sequelize {
         /**
          * Thrown when a connection to a database times out
          */
-        new (parent: Error): ConnectionTimedOutError;
+        new(parent: Error): ConnectionTimedOutError;
 
     }
 
@@ -2249,7 +2249,7 @@ declare namespace sequelize {
         /**
          * Thrown when a record was not found, Usually used with rejectOnEmpty mode (see message for details)
          */
-        new (parent: Error): EmptyResultError;
+        new(parent: Error): EmptyResultError;
 
     }
 
@@ -4006,7 +4006,7 @@ declare namespace sequelize {
          * because SQLite always runs INSERT OR IGNORE + UPDATE, in a single query, so there is no way to know
          * whether the row was inserted or not.
          */
-        upsert(values: TAttributes, options?: UpsertOptions & { returning: false | undefined }): Promise<boolean>;
+        upsert(values: TAttributes, options?: UpsertOptions & { returning?: false | undefined }): Promise<boolean>;
         upsert(values: TAttributes, options?: UpsertOptions & { returning: true }): Promise<[TInstance, boolean]>;
         insertOrUpdate(values: TAttributes, options?: UpsertOptions & { returning: false | undefined }): Promise<boolean>;
         insertOrUpdate(values: TAttributes, options?: UpsertOptions & { returning: true }): Promise<[TInstance, boolean]>;
@@ -4850,7 +4850,7 @@ declare namespace sequelize {
         /**
          * only allow uuids
          */
-        isUUID?: 3|4|5|"3"|"4"|"5"|"all" | { msg: string, args: number };
+        isUUID?: 3 | 4 | 5 | "3" | "4" | "5" | "all" | { msg: string, args: number };
 
         /**
          * only allow date strings
@@ -5342,7 +5342,7 @@ declare namespace sequelize {
         /**
          * Only retry a query if the error matches one of these strings.
          */
-        match?: (string|RegExp|Error)[];
+        match?: (string | RegExp | Error)[];
 
         /**
          * How many times a failing query is automatically retried. Set to 0 to disable retrying on SQL_BUSY error.
@@ -5799,8 +5799,8 @@ declare namespace sequelize {
          *     database.
          * @param options An object with options.
          */
-        new (database: string, username: string, password: string, options?: Options): Sequelize;
-        new (database: string, username: string, options?: Options): Sequelize;
+        new(database: string, username: string, password: string, options?: Options): Sequelize;
+        new(database: string, username: string, options?: Options): Sequelize;
 
         /**
          * Instantiate sequelize with an URI
@@ -5810,7 +5810,7 @@ declare namespace sequelize {
          * @param uri A full database URI
          * @param options See above for possible options
          */
-        new (uri: string, options?: Options): Sequelize;
+        new(uri: string, options?: Options): Sequelize;
 
         /**
          * Instantiate sequelize with an options object which containing username, password, database
@@ -5819,13 +5819,13 @@ declare namespace sequelize {
          *
          * @param options An object with options. See above for possible options
          */
-        new (options: Options): Sequelize;
+        new(options: Options): Sequelize;
 
         /**
          * Provide access to continuation-local-storage (http://docs.sequelizejs.com/en/latest/api/sequelize/#transactionoptions-promise)
          */
         cls: any;
-        useCLS(namespace:cls.Namespace): Sequelize;
+        useCLS(namespace: cls.Namespace): Sequelize;
 
     }
 
@@ -6419,7 +6419,7 @@ declare namespace sequelize {
          * @param fn The function you want to call
          * @param args All further arguments will be passed as arguments to the function
          */
-        new (fn: string, ...args: any[]): fn;
+        new(fn: string, ...args: any[]): fn;
     }
 
     interface col {
@@ -6434,7 +6434,7 @@ declare namespace sequelize {
          *
          * @param col The name of the column
          */
-        new (col: string): col;
+        new(col: string): col;
     }
 
     interface cast {
@@ -6449,7 +6449,7 @@ declare namespace sequelize {
          * @param val The value to cast
          * @param type The type to cast it to
          */
-        new (val: any, type: string): cast;
+        new(val: any, type: string): cast;
     }
 
     interface literal {
@@ -6462,7 +6462,7 @@ declare namespace sequelize {
          *
          * @param val
          */
-        new (val: any): literal;
+        new(val: any): literal;
     }
 
     interface and {
@@ -6475,7 +6475,7 @@ declare namespace sequelize {
          *
          * @param args Each argument will be joined by AND
          */
-        new (...args: Array<string | Object>): and;
+        new(...args: Array<string | Object>): and;
     }
 
     interface or {
@@ -6489,7 +6489,7 @@ declare namespace sequelize {
          *
          * @param args Each argument will be joined by OR
          */
-        new (...args: Array<string | Object>): or;
+        new(...args: Array<string | Object>): or;
     }
 
     interface json {
@@ -6509,7 +6509,7 @@ declare namespace sequelize {
          * @param value An optional value to compare against. Produces a string of the form "<json path> =
          *     '<value>'".
          */
-        new (conditionsOrPath: string | Object, value?: string | number | boolean): json;
+        new(conditionsOrPath: string | Object, value?: string | number | boolean): json;
     }
 
     interface where {
@@ -6537,8 +6537,8 @@ declare namespace sequelize {
          * @param logic The condition. Can be both a simply type, or a further condition (`.or`, `.and`, `.literal`
          *     etc.)
          */
-        new (attr: Object, comparator: string, logic: string | Object): where;
-        new (attr: Object, logic: string | Object): where;
+        new(attr: Object, comparator: string, logic: string | Object): where;
+        new(attr: Object, logic: string | Object): where;
     }
 
     interface SequelizeLoDash extends _.LoDashStatic {
